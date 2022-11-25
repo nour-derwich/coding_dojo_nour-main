@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <title>one Robot</title>
+</head>
+<body>
+    <a href="/">home</a>
+    <div style="width:50%">
+    <ul class="list-group">
+    <li class="list-group-item active" aria-current="true">profil {{one_user["id"]}}</li>
+    <li class="list-group-item">{{one_user["first_name"]}}</li>
+    <li class="list-group-item">{{one_user["last_name"]}}</li>
+    <li class="list-group-item">cread at: {{one_user["created_at"].strftime("%b %d %Y")}}</li>
+    <li class="list-group-item">last update: {{one_user["updated_at"].strftime("%b %d %Y")}}</li>
+
+</ul>
+<div>
+<a href="/edit/{{one_user.id}}">EDIT</a> | <a href="/delete/{{one_user.id}}">delete</a>
+</div>
+</div>
+</body>
+</html>
