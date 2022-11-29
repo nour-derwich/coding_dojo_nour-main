@@ -20,7 +20,7 @@ const UserForm = (props) => {
 
 const MessageFirstName = (e) => {
 
-    if(e.target.value.length < 3) {
+    if(e.target.value.length < 2) {
         setHasBeenSubmitted(true);
         
     
@@ -28,6 +28,28 @@ const MessageFirstName = (e) => {
         setHasBeenSubmitted(false);
         setFirstName(e.target.value)
     } }   
+    // 
+    const MessageLastName = (e) => {
+
+        if(e.target.value.length < 2) {
+            setHasBeenSubmitted(true);
+            
+        
+        }else{
+            setHasBeenSubmitted(false);
+            setLastName(e.target.value)
+        } }  
+        // 
+        const MessageEmail = (e) => {
+
+            if(e.target.value.length < 2) {
+                setHasBeenSubmitted(true);
+                
+            
+            }else{
+                setHasBeenSubmitted(false);
+                setEmail(e.target.value)
+            } }   
     
     
     return(
@@ -36,16 +58,18 @@ const MessageFirstName = (e) => {
             <div>
                 <label>First name: </label> 
                 <input type="text" onChange={(e)=>MessageFirstName(e)}/>
-                   <div>{hasBeenSubmitted? <p>The name should more than 3</p> : <p></p> }</div>
+                   <div>{hasBeenSubmitted? <p>The name should more than 2</p> : <p></p> }</div>
             </div>
 <div>
                 <label>Last Name: </label> 
-                <input  onChange={ (e) => setLastName(e.target.value) } />
-         
+                <input  onChange={ (e) => MessageLastName(e) } />
+<div>{hasBeenSubmitted? <p>The name should more than 2</p> : <p></p> }</div>
             </div>
             <div>
                 <label>Email Address: </label> 
-                <input type="email" onChange={ (e) => setEmail(e.target.value) } />
+                <input type="email" onChange={ (e) => MessageEmail(e) } />
+                <div>{hasBeenSubmitted? <p>IT should test@gmail.com</p> : <p></p> }</div>
+
             </div>
             <div>
                 <label>Password: </label>
@@ -55,15 +79,6 @@ const MessageFirstName = (e) => {
                 <input type="password" onChange={ (e) => setConfirm(e.target.value) } /> 
             </div>
                 <input type="submit" value="Create User" />
-                {/* <p>First Name :{firstName}</p>
-                <p>last name :{lastName}</p>
-                <p>Eamil:{email}</p>
-                <p>password:{password}</p>
-                <p>confrim password:{password}</p> */}
-           
-               
-               
-               
                
         </form>
     );
