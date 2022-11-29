@@ -5,7 +5,7 @@ const Display = (props) => {
         <div>
            <h1>Test</h1>
                 {props.box.map((b, idx) => {
-                    return <div key={idx} style={{backgroundColor:b, height:100, width:100} }></div>
+                    return <div key={idx} style={{backgroundColor:b, height:b, width:b} }></div>
                 })
 
             }
