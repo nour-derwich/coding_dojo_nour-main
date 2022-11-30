@@ -1,6 +1,8 @@
 box{
-    height: 200px;
-    width: 200px;
-    display: inline;
-    justify-content: space-around;
+display: flex;
+margin: 50px;
+justify-content: center;
+flex-wrap: wrap;
+gap: 20px;
+justify-content: space-around;
 }

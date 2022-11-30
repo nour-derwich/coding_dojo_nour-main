@@ -1,34 +1,25 @@
-
+import './App.css';
 import Form from './components/form';
+import React, { useState } from 'react';
 import Display from './components/Display';
-import { useState } from 'react';
+
 function App() {
-  const [box, setBox] = useState([]);
-  // const boxes = [
-  //   {
-  //     height: 200,
-  //     weight: 200,
-  //     color: "red"
-  //   },
-  //   {
-  //     height: 200,
-  //     weight: 200,
-  //     color: "blue"
-  //   },
-  //   {
-  //     height: 200,
-  //     weight: 200,
-  //     color: "purple"
-  //   }
-  // ]
+  const [boxs, setBoxs] = useState([{color:"red",Height:"100px",width:"100px"},{color:"blue",Height:"100px",width:"100px"},{color:"purple",Height:"100px",width:"100px"}]);
+  const newbox = (color,Height,width) => {
+    setBoxs([...boxs,{color:color,Height:Height,width:width}]);
+    // console.log(boxs);
+    
+  }
   return (
-    <div >
-      <h1>App.js</h1>
-      <Form  box={box} setBox ={setBox}/>
-      {JSON.stringify(box)}
-      <Display box={box}/> 
+    <div className="App">
+      <Form newbox={newbox}/>
+      <div className="boxs">  
+    
+    <Display boxs={boxs}/>
+    </div>
     </div>
   );
 }
 
 export default App;
+

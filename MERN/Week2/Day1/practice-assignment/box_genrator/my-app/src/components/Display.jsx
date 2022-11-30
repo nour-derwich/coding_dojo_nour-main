@@ -1,16 +1,17 @@
 import React from 'react'
-import styles from './Boxes.module.css';
-const Display = (props) => {
-    return (
-        <div>
-           <h1>Test</h1>
-                {props.box.map((b, idx) => {
-                    return <div key={idx} style={{backgroundColor:b, height:b, width:b} }></div>
-                })
+import  './Boxes.module.css'
 
-            }
-        </div>
-    )
+function Display(props) {
+  return (
+    <div className='box' >
+       {
+        props.boxs.map((box,idx)=>{
+            return <div key={idx} style={{height:box.Height,width:box.width,backgroundColor:box.color}}></div>
+        })
+       } 
+       
+    </div>
+  )
 }
 
 export default Display

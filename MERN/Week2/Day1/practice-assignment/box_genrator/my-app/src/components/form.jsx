@@ -1,35 +1,28 @@
-import react, { useState } from 'react';
-    
-    
-const Form = (props) => {
-    const [color, setColor] = useState("");
-const handleSubmit = (e) => {
-                e.preventDefault();
-                props.setBox([...props.box,color]);
-    
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        props.setBox([...props.box,height]);
-   const [height, setHeight] = useState("");
-    
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        props.setBox([...props.box,width]);
-    const [width, setWidth] = useState("");
-}};
-    
-    return (
-        <form onSubmit={ handleSubmit }>
-            <label htmlFor="">color</label>
-<input   onChange={ (e) => setColor(e.target.value)}  value={ color } />
-  <label htmlFor="">height</label>
-<input   onChange={ (e) => setHeight(e.target.value)}  value={ height } />
-  <label htmlFor="">width</label>
-<input   onChange={ (e) => setWidth(e.target.value)}  value={ width } />
+import React,{ useState }from 'react'
 
-<input type="submit" value="Add" />
-        </form>
-    );
-}};
+
+
+function Form(props) {
+    const [color, setColor] = useState("");
+    const [Height, setHeight] = useState("");
+    const [width, setWidth] = useState("");
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        props.newbox(color,Height,width);
+    };
+
+
     
-export default Form;
+  return (
+    <form onSubmit={handleSubmit}>
+     Color <input type="text" onChange={(e)=>setColor(e.target.value)}/>
+     Height <input type="text" onChange={(e)=>setHeight(e.target.value)}/>
+     Width <input type="text" onChange={(e)=>setWidth(e.target.value)}/>
+        <button type='submit'>ADD</button>
+        <div className='box'>
+        </div>
+    </form>
+  )
+}
+
+export default Form
