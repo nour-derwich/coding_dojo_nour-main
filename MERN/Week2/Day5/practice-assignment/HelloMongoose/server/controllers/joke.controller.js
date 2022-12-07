@@ -1,6 +1,6 @@
 const Joke = require("../models/joke.model");
 
-module.exports.findJokes=async(req,res)=>{
+module.exports.findProdects=async(req,res)=>{
     const jokes =await Joke.find();
     res.send({data:jokes});
 
