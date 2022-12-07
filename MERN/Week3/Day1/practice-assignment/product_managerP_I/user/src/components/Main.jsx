@@ -1,7 +1,9 @@
 import React ,{useState}from 'react'
 import axios from 'axios';
+import {useNavigate} from 'react-router-dom'
 
 const Main=()=> {
+  const navigate = useNavigate()
     const[inputs,setInputs]=useState({title:"",price:"",description:""});
 
 const creacteProd=e=>
@@ -10,7 +12,10 @@ const creacteProd=e=>
     axios.post('http://localhost:8000/api/prodects', {
         title: inputs.title, price:inputs.price,description:inputs.description
     })
-        .then(res=>console.log(res))
+        .then(res=>{
+          console.log(res)
+          navigate("/display")
+        })
         .catch(err=>console.log(err))
 }
   return (
