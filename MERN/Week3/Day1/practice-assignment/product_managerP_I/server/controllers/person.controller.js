@@ -18,7 +18,7 @@ module.exports.createProdect = (request, response) => {
         .then(newCreatedProdect => {
             response.json(newCreatedProdect )
         })
-        .catch(err => response.json({ message: 'Something went wrong', error: err }))
+        .catch(err => response.status(400).json(err))
 }
 
 module.exports.findOneProdect = (req, res) => {

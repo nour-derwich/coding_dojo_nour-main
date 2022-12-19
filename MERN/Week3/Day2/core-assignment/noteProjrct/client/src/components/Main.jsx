@@ -25,7 +25,7 @@ axios.delete(`http://localhost:8000/api/notes/${nodeId}`)
 .then(res=>{
     console.log(res.data);
     console.log("DELETE SUCCESS!");
-    notes.filter((note)=>note._id!==nodeId)
+    setNotes(notes.filter((note)=>note._id!==nodeId))
 })
 .catch(err=>console.log("XX",err))
 }
