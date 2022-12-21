@@ -16,7 +16,7 @@ public class ListsExceptions {
         Integer num = (Integer) element;
         System.out.println(num);
       } catch (ClassCastException e) {
-        System.out.println("" + element + "");
+        System.out.println("Cannot cast " + element + " to Integer.");
       }
     }
   }
