@@ -8,7 +8,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-<a href="/date">Date</a>
-<a href="/time">Time</a>
+<table class="table-primary">
+  <c:forEach items="${fruits}" var="fruit">
+  <tr class="table-primary">${fruit.name} ($${fruit.price})</tr>
+  </c:forEach>
+</table>
 </body>
 </html>

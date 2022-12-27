@@ -8,7 +8,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-<a href="/date">Date</a>
-<a href="/time">Time</a>
+<p>Count: <c:out value="${counter.count}" />
+
+ 
+</p>
 </body>
 </html>

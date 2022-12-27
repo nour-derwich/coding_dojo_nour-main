@@ -3,12 +3,13 @@
     <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core"%>
     <!DOCTYPE html>
 <html>
+<script src="status/js/time.js"></script>
+<link rel="stylesheet" href="status/css/time.css">
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-<a href="/date">Date</a>
-<a href="/time">Time</a>
+<p>${time}</p>
 </body>
 </html>

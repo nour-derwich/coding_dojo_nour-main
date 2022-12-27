@@ -8,7 +8,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<a href="/date">Date</a>
-<a href="/time">Time</a>
+ hello
 </body>
 </html>
