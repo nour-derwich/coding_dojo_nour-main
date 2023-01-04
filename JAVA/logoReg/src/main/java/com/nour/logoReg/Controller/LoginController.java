@@ -57,7 +57,7 @@ public class LoginController {
            BindingResult result, Model model, HttpSession session) {
        
        // Add once service is implemented:
-        Login user = LoginServec.login(newLogin, result);
+        Login login = LoginServec.login(newLogin, result);
    
        if(result.hasErrors()) {
            model.addAttribute("newUser", new Login());
@@ -67,9 +67,9 @@ public class LoginController {
        // No errors! 
        // TO-DO Later: Store their ID from the DB in session, 
        // in other words, log them in.
-       session.setAttribute("user_id", user.getId());
+       session.setAttribute("user_id", login.getId());
       ;
-       session.setAttribute("userName", user.getUserName());
+       session.setAttribute("userName", login.getUserName());
        return "redirect:/home";
    }
 	

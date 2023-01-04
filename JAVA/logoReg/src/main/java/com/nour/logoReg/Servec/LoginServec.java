@@ -2,12 +2,15 @@ package com.nour.logoReg.Servec;
 
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.BindingResult;
 
 import com.nour.logoReg.Model.Login;
+import com.nour.logoReg.Model.LoginUser;
 import com.nour.logoReg.Repository.LogRepository;
 
 @Service
@@ -37,5 +40,34 @@ public Login register(Login newUser, BindingResult result)
 		return logRepo.save(newUser);
 	}
 	}
+
+
+//==== Login ====
+	public Login login(@Valid LoginUser newLogin, BindingResult result) {
+
+		// Check if email exists in the DB
+		Optional<Login> potentialUser = logRepo.findByEmail(newLogin.getEmail());
+		if (!potentialUser.isPresent()) {
+			result.rejectValue("email", "login error", "Email not found in DB");
+		} else {
+			Login login = potentialUser.get();
+			// returns true || false
+			if (!BCrypt.checkpw(newLogin.getPassword(), login.getPassword())) {
+				result.rejectValue("password", "login error", "invalid password");
+			}
+			if (result.hasErrors()) {
+				return null;
+			} else {
+				// return user object
+				return login;
+			}
+		}
+
+		return null;
+	}
+	
+	 
+		
+	
 
 }
